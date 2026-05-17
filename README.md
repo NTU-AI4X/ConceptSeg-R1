@@ -1,10 +1,10 @@
 <div align="center">
  
-## ConceptSeg-R1: Segment any concept by meta-reinforcement learning
+## ConceptSeg-R1: Segment Any Concept via Meta-Reinforcement Learning
 
 
 ### Arxiv 2026 
-[![arXiv](https://img.shields.io/badge/arXiv-2509.25934-b31b1b.svg?style=plastic)]([https://arxiv.org/abs/2509.25934](https://arxiv.org))
+
 
 </div>
 
