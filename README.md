@@ -68,7 +68,51 @@
 - **⚡ From Heavy Reasoning to Adaptive Inference**  
   The Shortcut Router dynamically balances SAM 3 efficiency and reasoning depth, enabling fast perception for simple cases and deeper reasoning for complex concepts.
 
+
 ---
+ 
+## Results
+ 
+### Concept Segmentation Benchmarks (CI / CD / CR)
+ 
+<div align="center">
+<img src="./assets/tab1.png" width="100%"/>
+</div>
+<br>
+
+### Cityscapes Performance
+
+ 
+<div align="center">
+<img src="./assets/tab2.png" width="90%"/>
+</div>
+<br>
+
+### ReasonSeg Performance (Zero-Shot)
+ 
+ 
+<div align="center">
+<img src="./assets/tab3.png" width="60%"/>
+</div>
+
+### Qualitative Comparison
+ 
+<div align="center">
+<img src="./assets/fig4.png" width="100%"/>
+</div>
+<br>
+
+### Concept Coexistence
+ 
+
+<div align="center">
+<img src="./assets/fig5.png" width="100%"/>
+</div>
+<br>
+
+---
+
+
 
 ## Get Started
 
