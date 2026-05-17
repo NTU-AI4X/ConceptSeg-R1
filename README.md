@@ -50,7 +50,7 @@
 </div>
 
 <div align="center">
-<img src="./assets/Architecture.png" width="70%"/>
+<img src="./assets/Architecture.png" width="100%"/>
 </div>
 
 <br>
