@@ -3,8 +3,8 @@
 ## ConceptSeg-R1: Segment any concept by meta-reinforcement learning
 
 
-### CVPR 2026 
-[![arXiv](https://img.shields.io/badge/arXiv-2509.25934-b31b1b.svg?style=plastic)]([https://arxiv.org/abs/2509.25934](https://arxiv.org)) [![CVF](https://img.shields.io/badge/CVPR-Paper-b4c7e7.svg?style=plastic)](https://arxiv.org)
+### Arxiv 2026 
+[![arXiv](https://img.shields.io/badge/arXiv-2509.25934-b31b1b.svg?style=plastic)]([https://arxiv.org/abs/2509.25934](https://arxiv.org))
 
 </div>
 
@@ -16,7 +16,7 @@ PyTorch Implementation of ConceptSeg-R1
 
 ## News
  
- - _09.2025_: We have released the arXiv paper of ConceptSeg-R1.😛
+ - _05.2026_: We have released the arXiv paper of ConceptSeg-R1.😛
 
 
 ## 🚀 TODO
@@ -27,8 +27,29 @@ PyTorch Implementation of ConceptSeg-R1
 - [x] release pre-trained ConceptSeg-R1 7B Weights
 - [ ] release larger pre-trained ConceptSeg-R1  Weights
 
-## Introduction 
 
+<div align="center">
+<img src="./assets/Concept_Tree.png" width="1300"/>
+</div>
+
+## Introduction 💡
+
+ConceptSeg-R1 addresses the limitations of existing segmentation models by shifting visual perception from object-level localization toward **concept-level understanding**.
+
+### Key Contributions:
+
+* **Three-level Concept Taxonomy**: Formally categorizes concepts into **Context-Independent (CI)**, **Context-Dependent (CD)**, and **Context-Reasoning (CR)** based on cognitive complexity.
+
+* **Meta-GRPO**: A meta-reinforcement learning mechanism that induces transferable task rules from visual demonstrations and verifies them through proxy reasoning.
+
+* **Concept Translation Module (CTM)**: A lightweight module that maps MLLM reasoning states into implicit concept groups, eliminating the semantic bottleneck between reasoning and mask execution.
+
+* **Shortcut Router**: An adaptive gate that preserves the efficiency of SAM 3 for simple cases while activating full reasoning only for complex CD/CR concepts.
+
+
+<div align="center">
+<img src="./assets/Architecture.png" width="750"/>
+</div>
 
 
 
@@ -50,7 +71,7 @@ bash setup.sh
 
 ### Train
 
-1. **Prepare Data**: Download the dataset and define your root image_folders path in the config.json.
+1. **Prepare Data**: Download the dataset and define your root image_folders path in the sh files.
 
 2. **Launch Srage1 SFT Training**:
 
