@@ -34,15 +34,20 @@
 | ✅ | arXiv paper |
 | ✅ | Training code |
 | ✅ | Testing code |
-| ✅ | MMAD datasets |
-| ✅ | ConceptSeg-R1 7B weights |
+| ✅ | CI-CD-CR datasets |
+| ✅ | ConceptSeg-R1 (7B weights) |
 | ⬜ | Support larger MLLM backbones, e.g., Gemini 2.5 Pro|
 
 ---
 
 ## Introduction
 
-ConceptSeg-R1 shifts visual perception from **object-level localization** toward **concept-level understanding**, addressing core limitations of existing segmentation models.
+<div align="center">
+
+### 🌍 As segmentation in computer vision shifts from objects to concepts, 
+### 🚀 **ConceptSeg-R1 takes the first step toward segmenting any concept.**
+
+</div>
 
 <div align="center">
 <img src="./assets/Architecture.png" width="70%"/>
@@ -51,18 +56,17 @@ ConceptSeg-R1 shifts visual perception from **object-level localization** toward
 <br>
 
 ### Key Contributions
+- **🌳 From Objects to Concepts**  
+  We introduce a three-level concept hierarchy covering **CI**, **CD**, and **CR** concepts, pushing segmentation beyond category recognition.
 
-**🌳 Three-level Concept Taxonomy**
-Formally categorizes concepts into **Context-Independent (CI)**, **Context-Dependent (CD)**, and **Context-Reasoning (CR)** tiers based on cognitive complexity.
+- **🔁 From Instance Solving to Rule Induction**  
+  Meta-GRPO enables the model to infer transferable task rules from visual demonstrations and apply them deductively to unseen queries.
 
-**🔁 Meta-GRPO**
-A meta-reinforcement learning mechanism that induces transferable task rules from visual demonstrations and verifies them through proxy reasoning.
+- **🔗 Latent Concept Tokens for Frozen SAM 3**  
+  We map MLLM reasoning states into implicit concept tokens in the SAM 3 prompt space, enabling reasoning-aware segmentation without fine-tuning SAM 3.
 
-**🔗 Concept Translation Module (CTM)**
-A lightweight module mapping MLLM reasoning states into implicit concept groups, eliminating the semantic bottleneck between reasoning and mask execution.
-
-**⚡ Shortcut Router**
-An adaptive gate preserving SAM 3 efficiency for simple cases while activating full reasoning for complex CD/CR concepts.
+- **⚡ From Heavy Reasoning to Adaptive Inference**  
+  The Shortcut Router dynamically balances SAM 3 efficiency and reasoning depth, enabling fast perception for simple cases and deeper reasoning for complex concepts.
 
 ---
 
