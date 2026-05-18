@@ -21,7 +21,6 @@
 
 </div>
 
----
 
 ## 📰 News
 
@@ -38,7 +37,6 @@
 | ✅ | ConceptSeg-R1 (7B weights) |
 | ⬜ | Support larger MLLM backbones, e.g., Gemini 2.5 Pro|
 
----
 
 ## Introduction
 
@@ -68,13 +66,10 @@
 - **⚡ From Heavy Reasoning to Adaptive Inference**  
   The Shortcut Router dynamically balances SAM 3 efficiency and reasoning depth, enabling fast perception for simple cases and deeper reasoning for complex concepts.
 
-
----
- 
 ## Results
- 
+
 ### Concept Segmentation Benchmarks (CI / CD / CR)
- 
+
 <div align="center">
 <img src="./assets/tab1.png" width="100%"/>
 </div>
@@ -82,41 +77,44 @@
 
 ### Cityscapes Performance
 
- 
+
 <div align="center">
 <img src="./assets/tab2.png" width="90%"/>
 </div>
 <br>
 
 ### ReasonSeg Performance (Zero-Shot)
- 
- 
+
+
 <div align="center">
 <img src="./assets/tab3.png" width="60%"/>
 </div>
 
 ### Qualitative Comparison
- 
+
 <div align="center">
 <img src="./assets/fig4.png" width="100%"/>
 </div>
 <br>
 
 ### Concept Coexistence
- 
+
 
 <div align="center">
 <img src="./assets/fig5.png" width="100%"/>
 </div>
 <br>
 
----
-
-
-
 ## Get Started
 
 ### 1. Environment Setup
+
+Before running `setup.sh`, download the release assets below from
+[GitHub Releases](https://github.com/yuanzhao-CVLAB/ConceptSeg-R1/releases)
+and place them in the repository root:
+
+- `sam3-main.zip`: the modified SAM 3 package used by ConceptSeg-R1.
+- `all_meta.json.zip`: the training metadata file.
 
 ```bash
 conda create -n conceptseg-r1 python=3.10
@@ -126,7 +124,8 @@ bash setup.sh
 
 ### 2. Training
 
-**Prepare data** — Download the dataset and set your `image_folders` path in the shell scripts.
+**Prepare data** — Download the dataset, extract `all_meta.json` through `setup.sh`,
+and set your `image_folders` path in the shell scripts.
 
 ```bash
 # Stage 1: SFT Training
@@ -152,9 +151,12 @@ bash eval_conceptseg.sh
 bash eval_reasonseg.sh
 ```
 
----
-
 ## Data
+
+`all_meta.json` is no longer tracked in this repository. Download
+`all_meta.json.zip` from
+[GitHub Releases](https://github.com/yuanzhao-CVLAB/ConceptSeg-R1/releases)
+and run `bash setup.sh` to extract it before training.
 
 Place datasets under a shared root directory (`image_folders`):
 
@@ -179,13 +181,11 @@ root/
 └── COD10K1024/
 ```
 
----
 
 ## Metric
 
 Evaluation uses the [PySegMetric_EvalToolkit](https://github.com/Xiaoqi-Zhao-DLUT/PySegMetric_EvalToolkit).
 
----
 
 ## Datasets & Checkpoints
 
@@ -193,4 +193,3 @@ Evaluation uses the [PySegMetric_EvalToolkit](https://github.com/Xiaoqi-Zhao-DLU
 |----------|------|
 | 📦 ConceptSeg-Benchmark Dataset | [Download on HuggingFace](https://huggingface.co/datasets/zhaoyuan666/ConceptSeg-Benchmark) |
 | 🤖 ConceptSeg-R1-7B Weights | [Download on HuggingFace](https://huggingface.co/zhaoyuan666/ConceptSeg-R1-7B) |
-
