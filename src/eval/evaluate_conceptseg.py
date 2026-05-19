@@ -304,7 +304,7 @@ def main(args):
     )
 
 
-
+    assert args.batch_size == 1, f"batch_size must be 1, got {args.batch_size}"
     dataloader = DataLoader(dataset, args.batch_size, False, collate_fn=lambda batch: list(batch))
 
     bar = tqdm(dataloader)
@@ -349,7 +349,7 @@ if __name__ == "__main__":
     parser.add_argument("--model_path", type=str, required=True, help="Model path")
     parser.add_argument("--save_name", type=str, required=False,default="evalution_del", help="Model path")
     parser.add_argument("--dataset_names", type=str, required=True, help="dataset_names")
-    parser.add_argument("--batch_size", type=int, default=24, help="Batch size")
+    parser.add_argument("--batch_size", type=int, default=1, help="Batch size")
     parser.add_argument("--sample_num", type=int, default=-1, help="Number of samples (debugging)")
     parser.add_argument("--coord_norm_type", type=str, default="qwen2p5vl", choices=["qwen2vl", "qwen2p5vl"], help="Coordinate normalization type")
     parser.add_argument("--image_dir", type=str, default="./datasets", help="Path to reasonseg dir")
