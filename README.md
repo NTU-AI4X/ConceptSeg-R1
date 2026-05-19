@@ -5,6 +5,7 @@
 **ConceptSeg-R1: Segment Any Concept via Meta-Reinforcement Learning**
 
 [![arXiv](https://img.shields.io/badge/arXiv-2026-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org)
+[![Project Page](https://img.shields.io/badge/🌐%20Project-Page-blueviolet?style=flat-square)](https://ntu-ai4x.github.io/ConceptSeg-R1/)
 [![HuggingFace](https://img.shields.io/badge/🤗%20Model-7B%20Weights-ffd21e?style=flat-square)](https://huggingface.co/zhaoyuan666/ConceptSeg-R1-7B)
 [![Dataset](https://img.shields.io/badge/🤗%20Dataset-ConceptSeg--Benchmark-ffd21e?style=flat-square)](https://huggingface.co/datasets/zhaoyuan666/ConceptSeg-Benchmark)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue?style=flat-square)](LICENSE)
