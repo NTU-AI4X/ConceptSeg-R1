@@ -176,7 +176,6 @@ root/
 ├── coco2014_Artifact/
 ├── fewshot1000/
 ├── DUTS/
-├── SASilver_inaturalist/
 ├── ESDIDefects/
 └── COD10K1024/
 ```
