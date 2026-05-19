@@ -75,7 +75,7 @@
 </div>
 <br>
 
-### Cityscapes Performance
+### Cityscapes Performance (Zero-Shot)
 
 
 <div align="center">
