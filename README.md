@@ -19,20 +19,12 @@
 
 
 <img src="./assets/Concept_Tree.png" width="90%"/>
+</div>
 
-<br>
-
-<div align="center">
-
-<a href="https://github.com/NTU-AI4X/NTU-AI4X.github.io/raw/main/ConceptSeg-R1/ConceptSeg-R1_short_show.mp4">
-  <img src="./assets/video_cover.png" width="90%">
+## 🎬 Short Video
+<a href="https://ntu-ai4x.github.io/ConceptSeg-R1/#Show">
+  <img src="https://github.com/NTU-AI4X/NTU-AI4X.github.io/blob/main/ConceptSeg-R1/ConceptSeg-R1-video.jpg" width="90%">
 </a>
-
-</div>
-
-
-</div>
-
 
 ## 📰 News
 
