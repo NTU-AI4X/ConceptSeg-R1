@@ -20,14 +20,11 @@
 
 <img src="./assets/Concept_Tree.png" width="90%"/>
 
-</div>
-
-<div align="center">
-<img src="./assets/Concept_Tree.png" width="90%"/>
-
 <video width="90%" controls>
   <source src="https://github.com/NTU-AI4X/NTU-AI4X.github.io/raw/main/ConceptSeg-R1/ConceptSeg-R1_short_show.mp4" type="video/mp4">
 </video>
+
+
 </div>
 
 
