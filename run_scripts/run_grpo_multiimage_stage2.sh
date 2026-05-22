@@ -3,8 +3,8 @@ export REPO_HOME="${PROJECT_ROOT}" # TODO: change this to your own
 echo "REPO_HOME: $REPO_HOME"
 # on remote
 model_path="Qwen/Qwen2.5-VL-3B-Instruct"
-image_folders="/home/ubuntun/disk7T/zy/data/ConceptSegDatasets"
-data_file_paths="/home/ubuntun/disk7T/zy/code/MLLM_GRPO/ConceptSeg-R1/all_meta.json"
+image_folders="/home/ubuntun/disk7T/zy/data/ConceptSeg-Benchmark"
+data_file_paths="/home/ubuntun/disk7T/zy/code/MLLM_GRPO/ConceptSeg-R1/data.json"
 is_reward_customized_from_vlm_module=False
 reward_methods="all_match"
 echo "data_file_paths: $data_file_paths"
@@ -40,7 +40,7 @@ export WANDB_MODE=online #online
     --gradient_accumulation_steps 1 \
     --gradient_checkpointing true \
     --logging_steps 1 \
-    --num_train_epochs 30 \
+    --num_train_epochs 2 \
     --bf16 \
     --attn_implementation flash_attention_2 \
     --run_name ${EXP_NAME} \
@@ -52,7 +52,7 @@ export WANDB_MODE=online #online
     --question_template cot \
     --max_completion_length 2048 \
     --max_pixels 360000 \
-    --reward_funcs format    \
+    --reward_funcs format   iou \
     --beta 0.04 \
     --report_to wandb \
     --dataset-name not_used \
