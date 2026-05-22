@@ -114,7 +114,7 @@ def format_reward(completions, **kwargs):
     contents = [completion[0]["content"] for completion in completions]
     rewards = []
     for i, (content,gt_miss_ref_box) in enumerate(zip(contents, kwargs['miss_ref_bbox'])):
-        pattern = r"<think>.*?</think>\s*<bbox>\s*(\[\s*\d+\s*,\s*\d+\s*,\s*\d+\s*,\s*\d+\s*\])\s*</bbox>\s*<answer>.*?</answer>"
+        pattern = r"<think>.*?</think>\s*<rule>.*?</rule>\s*<bbox>.*?</bbox>\s*<answer>.*?</answer>"
         if len(gt_miss_ref_box) > 0:
             pattern = r"<think>.*?</think>\s*<rule>.*?</rule>\s*<check>\s*(\[\s*\d+\s*,\s*\d+\s*,\s*\d+\s*,\s*\d+\s*\])\s*</check>\s*<bbox>.*?</bbox>\s*<answer>.*?</answer>"
         match = re.search(pattern, content, re.DOTALL)
