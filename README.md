@@ -137,6 +137,7 @@ and set your `image_folders` path in the shell scripts.
 bash run_grpo_multiimage_stage1.sh
 
 # Stage 2: GRPO Training
+# Note: Set `model_path` to the Stage 1 output checkpoint before running.
 bash run_grpo_multiimage_stage2.sh
 ```
 
