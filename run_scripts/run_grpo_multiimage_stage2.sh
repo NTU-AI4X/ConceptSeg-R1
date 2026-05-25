@@ -37,7 +37,7 @@ export WANDB_MODE=online #online
     --reward_method $reward_methods \
     --task_type $TASK_TYPE \
     --per_device_train_batch_size 8 \
-    --gradient_accumulation_steps 1 \
+    --gradient_accumulation_steps 2 \
     --gradient_checkpointing true \
     --logging_steps 1 \
     --num_train_epochs 2 \
