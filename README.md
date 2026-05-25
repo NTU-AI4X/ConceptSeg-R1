@@ -137,7 +137,7 @@ and set your `image_folders` path in the shell scripts.
 bash run_grpo_multiimage_stage1.sh
 
 # Stage 2: GRPO Training
-# Note: Set `model_path` to the Stage 1 output checkpoint before running.
+# Note: Set `model_path` to the Stage 1 output checkpoint before running. （If you training encounter unexpected GPU OOM   despite sufficient VRAM, , try changing transformers_version to "4.49.0" in generation_config.json under model_path.）
 bash run_grpo_multiimage_stage2.sh
 ```
 
