@@ -140,7 +140,7 @@ def save_mask_visualization(ref_pil_image,pil_image, pred_mask, gt_mask, save_pa
     final_image.save(save_path)
     return final_image
 class ConceptSegEvaluator:
-    """Evaluator task for Concept Segmentation dataset"""
+    """Evaluator class for Concept Segmentation dataset"""
     def __init__(self, args):
         self.args = args
         self.dtype = torch.bfloat16
