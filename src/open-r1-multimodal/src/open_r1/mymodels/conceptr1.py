@@ -23,6 +23,7 @@ import torch.nn.functional as F
 
 from typing import List, Optional, Tuple, Union
 from transformers.models.qwen2_vl.configuration_qwen2_vl import Qwen2VLConfig
+from transformers.models.qwen2_5_vl.configuration_qwen2_5_vl import Qwen2_5_VLConfig
 from transformers.models.qwen2_5_vl.modeling_qwen2_5_vl import Qwen2_5_VLForConditionalGeneration, \
     Qwen2_5_VLCausalLMOutputWithPast
 from transformers.utils import logging
@@ -52,7 +53,7 @@ class LearnableQueryLayer(nn.Module):
         return query
 
 
-class ConceptSegR1Config(Qwen2VLConfig):
+class ConceptSegR1Config(Qwen2_5_VLConfig):
     def __init__(self, num_of_query=None, if_use_qwen_connector=None, if_include_sam=None, **kwargs):
         super().__init__(**kwargs)
         self.num_of_query = num_of_query
