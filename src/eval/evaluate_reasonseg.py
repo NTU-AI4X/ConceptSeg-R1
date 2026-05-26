@@ -57,7 +57,7 @@ class ReasonSegVal(Dataset):
             "box": [],
             "id":data['ann_id'],
         }
-class RefCOCOEvaluator:
+class ReasoningSegEvaluator:
     """Evaluator class for ReasonSeg dataset"""
     def __init__(self, args):
         self.args = args
@@ -156,7 +156,7 @@ def main(args):
     os.makedirs(f"{args.model_path}/evaluations", exist_ok=True)
     dataset = ReasonSegVal( if_reasonseg_val=args.cot)
 
-    evaluator = RefCOCOEvaluator(args)
+    evaluator = ReasoningSegEvaluator(args)
     # dataset = ReasonSegDataset(Namespace(max_pixels=360000,min_pixels=100),base_image_dir=args.image_dir,mode="val")
     dataloader = DataLoader(dataset, 1, False, collate_fn=lambda batch: list(batch))
 
