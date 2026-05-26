@@ -139,8 +139,8 @@ def save_mask_visualization(ref_pil_image,pil_image, pred_mask, gt_mask, save_pa
     final_image.paste(mask,(3*size[0],0))
     final_image.save(save_path)
     return final_image
-class RefCOCOEvaluator:
-    """Evaluator class for ReasonSeg dataset"""
+class ConceptSegEvaluator:
+    """Evaluator task for Concept Segmentation dataset"""
     def __init__(self, args):
         self.args = args
         self.dtype = torch.bfloat16
@@ -295,7 +295,7 @@ class RefCOCOEvaluator:
 def main(args):
     os.makedirs(f"{args.model_path}/{args.save_name}", exist_ok=True)
 
-    evaluator = RefCOCOEvaluator(args)
+    evaluator = ConceptSegEvaluator(args)
     dataset = ConceptSegDataset(
         argparse.Namespace(train_sample_size=1000, min_pixels=4, max_pixels=360000, question_template=args.template),
         mode="test", dataset_names=args.dataset_names,
