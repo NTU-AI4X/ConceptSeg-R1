@@ -3,10 +3,6 @@ import os
 import time
 
 
-os.environ['NCCL_P2P_DISABLE'] = '1'
-os.environ['NCCL_IB_DISABLE'] = '1'
-os.environ['http_proxy'] = "http://127.0.0.1:7890"
-os.environ['https_proxy'] = "http://127.0.0.1:7890"
 from transformers import AutoProcessor
 from open_r1.mymodels.conceptr1 import  ConceptSegR1ForConditionalGeneration_qwen2p5
 import re
@@ -35,7 +31,7 @@ random.seed(42)
 import torch.nn.functional as F
 from metrics import cal_mae,cal_sm,cal_wfm, cal_dice, cal_iou_f,cal_iou_b,cal_ber
 
-from open_r1.trainer import VLMGRPOTrainer, GRPOConfig
+from open_r1.trainer import VLMGRPOTrainer
 def get_mask_from_json(json_path, img):
     """
     Read polygon annotation JSON file and generate mask.
@@ -139,8 +135,8 @@ def save_mask_visualization(ref_pil_image,pil_image, pred_mask, gt_mask, save_pa
     final_image.paste(mask,(3*size[0],0))
     final_image.save(save_path)
     return final_image
-class ConceptSegEvaluator:
-    """Evaluator class for Concept Segmentation dataset"""
+class RefCOCOEvaluator:
+    """Evaluator class for ReasonSeg dataset"""
     def __init__(self, args):
         self.args = args
         self.dtype = torch.bfloat16
@@ -295,12 +291,12 @@ class ConceptSegEvaluator:
 def main(args):
     os.makedirs(f"{args.model_path}/{args.save_name}", exist_ok=True)
 
-    evaluator = ConceptSegEvaluator(args)
+    evaluator = RefCOCOEvaluator(args)
     dataset = ConceptSegDataset(
-        argparse.Namespace(train_sample_size=1000, min_pixels=4, max_pixels=360000, question_template=args.template),
+        argparse.Namespace(train_sample_size=1000, min_pixels=4, max_pixels=360000, question_template=args.template,
+        data_file_paths= args.data_files,
+        image_folders = args.image_folders),
         mode="test", dataset_names=args.dataset_names,
-        data_files= GRPOConfig.data_files,
-        image_folders = GRPOConfig.image_folders,#"/home/ubuntun/disk7T/zy/data/ConceptSegDatasets"
     )
 
 
@@ -347,6 +343,8 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Visual Localization Evaluation Script")
     parser.add_argument("--model_path", type=str, required=True, help="Model path")
+    parser.add_argument("--data_files", type=str, required=False, default=None, help="Path to data files")
+    parser.add_argument("--image_folders", type=str, required=False, default=None, help="Path to image folders")
     parser.add_argument("--save_name", type=str, required=False,default="evalution_del", help="Model path")
     parser.add_argument("--dataset_names", type=str, required=True, help="dataset_names")
     parser.add_argument("--batch_size", type=int, default=1, help="Batch size")
