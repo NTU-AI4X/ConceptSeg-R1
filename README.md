@@ -40,7 +40,7 @@
 | ✅ | Testing code |
 | ✅ | CI-CD-CR datasets |
 | ✅ | ConceptSeg-R1 (7B weights) |
-| ⬜ | Support larger MLLM backbones, e.g., Qwen2.5-VL-72B-Instruct|
+| ⬜ | Support larger MLLM backbones, e.g.,  Qwen2.5-VL-32B-Instruct，Qwen2.5-VL-72B-Instruct|
 
 
 ## Introduction
