@@ -8,7 +8,9 @@ import torch
 from open_r1.constants import *
 import random
 def get_cd_data(data_files, image_folders,mode,dataset_name_list):
-
+    if isinstance(dataset_name_list, str):
+        dataset_name_list = [dataset_name_list]
+        
     all_data = []
     for data_file, image_folder in zip(data_files, image_folders):
         with open(data_file, "r") as f:
