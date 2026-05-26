@@ -343,8 +343,8 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Visual Localization Evaluation Script")
     parser.add_argument("--model_path", type=str, required=True, help="Model path")
-    parser.add_argument("--data_files", type=str, required=False, default=None, help="Path to data files")
-    parser.add_argument("--image_folders", type=str, required=False, default=None, help="Path to image folders")
+    parser.add_argument("--data_files", type=str, required=True, default=None, help="Path to data files")
+    parser.add_argument("--image_folders", type=str, required=True, default=None, help="Path to image folders")
     parser.add_argument("--save_name", type=str, required=False,default="evalution_del", help="Model path")
     parser.add_argument("--dataset_names", type=str, required=True, help="dataset_names")
     parser.add_argument("--batch_size", type=int, default=1, help="Batch size")
