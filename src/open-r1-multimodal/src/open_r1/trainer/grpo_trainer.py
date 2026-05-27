@@ -916,7 +916,7 @@ class VLMGRPOTrainer(Trainer):
             prompt_inputs)  # dict_keys(['input_ids', 'attention_mask', 'pixel_values', 'image_grid_thw'])
         prompt_inputs.update({"sam_images":[p["sam_image"] for p in ori_inputs]})
         # prompt_inputs.update({"sam_text_prompt":[p["problem"] for p in inputs]})
-        prompt_inputs.update({"sam_text_prompt":["visual" if random.random()<0.5 else "object" for p in inputs]})
+        prompt_inputs.update({"sam_text_prompt":["visual"  for p in inputs]})
         prompt_inputs.update({"prompt_length": prompt_length})
         # with torch.no_grad():
         model_output,low_res_masks = model(
