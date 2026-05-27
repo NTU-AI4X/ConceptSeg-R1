@@ -68,7 +68,7 @@ class ConceptSegR1ForConditionalGeneration_qwen2p5(Qwen2_5_VLForConditionalGener
     """
     config_class = ConceptSegR1Config
 
-    def __init__(self, config, num_of_query=16,  **kwargs):
+    def __init__(self, config, num_of_query=8,  **kwargs):
         super().__init__(config)
         model_num_of_query = config.num_of_query or num_of_query
 
