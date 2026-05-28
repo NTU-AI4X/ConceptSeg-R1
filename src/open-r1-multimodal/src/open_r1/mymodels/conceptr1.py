@@ -64,7 +64,7 @@ class ConceptSegR1Config(Qwen2_5_VLConfig):
 
 class ConceptSegR1ForConditionalGeneration_qwen2p5(Qwen2_5_VLForConditionalGeneration):
     """
-    Conceptseg-R1 model for conditional generation based on Qwen2VL.
+    Conceptseg-R1 model for conditional generation based on Qwen2_5_VL.
     """
     config_class = ConceptSegR1Config
 
