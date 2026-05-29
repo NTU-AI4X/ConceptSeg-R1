@@ -198,3 +198,22 @@ Evaluation uses the [PySegMetric_EvalToolkit](https://github.com/Xiaoqi-Zhao-DLU
 |----------|------|
 | 📦 ConceptSeg-Benchmark Dataset | [Download on HuggingFace](https://huggingface.co/datasets/zhaoyuan666/ConceptSeg-Benchmark) |
 | 🤖 ConceptSeg-R1-7B Weights | [Download on HuggingFace](https://huggingface.co/zhaoyuan666/ConceptSeg-R1-7B) |
+
+## Acknowledgements
+
+We reference the excellent open-source repos [SAM 3](https://github.com/facebookresearch/sam3), [VLM-R1](https://github.com/om-ai-lab/VLM-R1) and [LENS](https://github.com/hustvl/LENS). Thanks to their authors for the valuable contributions to the community.
+
+## Citation
+If you find this work useful, please consider starring  ⭐ and citing the repo!
+
+
+```bibtex
+@misc{zhao2026conceptseg,
+      title={ConceptSeg-R1: Segment Any Concept via Meta-Reinforcement Learning}, 
+      author={Yuan Zhao and Youwei Pang and Jiaming Zuo and Wei Ji and Kailai Zhou and Bin Fan and Yunkang Cao and Lihe Zhang and Xiaofeng Liu and Huchuan Lu and Weisi Lin and Dacheng Tao and Xiaoqi Zhao},
+      year={2026},
+      eprint={2605.20385},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2605.20385}, 
+}
