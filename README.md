@@ -40,7 +40,7 @@
 | ✅ | Testing code |
 | ✅ | CI-CD-CR datasets |
 | ✅ | ConceptSeg-R1 (7B weights) |
-| ⬜ | Release larger MLLM  weights, e.g.,  Qwen2.5-VL-32B-Instruct，Qwen2.5-VL-72B-Instruct|
+| ⬜ | Release larger MLLM  weights, e.g.,  ConceptSeg-R1-32B，ConceptSeg-R1-72B|
 
 
 ## Introduction
