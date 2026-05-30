@@ -157,6 +157,29 @@ bash eval_conceptseg.sh
 bash eval_reasonseg.sh
 ```
 
+
+### 4. Inference
+**Quick Start**: The `inference.sh` script includes 4 test cases covering different usage scenarios.
+```bash
+# Test 4  cases
+bash run_scripts/inference.sh
+```
+**Single Example Inference** — For quick testing and demonstration, use the inference script:
+```bash
+# Or test a specific case
+python src/eval/inference_single_example.py \
+    --model_path "path/to/model" \
+    --infer_path "path/to/image" \
+    --question "concept description" \
+    --output_path "output/path"
+```
+
+**Supported Input Modes:**
+- **Single Image**: Basic concept segmentation with text prompt (set `--ref_path` and `--bbox` to empty)
+- **Multiple Images**: Reference-guided segmentation with visual reasoning (set `--ref_path)
+- **Bounding Boxes**: Precise reference region specification for complex concepts (set `--bbox)
+ 
+
 ## Data
 
 `all_meta.json` is no longer tracked in this repository. Download
