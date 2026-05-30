@@ -398,7 +398,7 @@ if __name__ == '__main__':
     parser.add_argument("--dtype", type=str, default="bfloat16", choices=["float32", "bfloat16", "float16"], 
                        help="Data type")
     parser.add_argument("--template", type=str, default="infer_cot", help="Prompt template type")
-    parser.add_argument("--bbox", type=str, default=None, help="Bounding box information (format: 'x1,y1,x2,y2;x1,y1,x2,y2')")
+    parser.add_argument("--bbox", type=str, default=None, help="Reference Bounding box information (format: 'x1,y1,x2,y2;x1,y1,x2,y2') under max_pixels resolution (e.g., 360000=600x600), can be empty")
     parser.add_argument("--max_pixels", type=int, default=360000, help="Maximum number of pixels (default 360000, corresponds to 600x600)")
     
     args = parser.parse_args()
