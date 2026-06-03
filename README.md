@@ -112,6 +112,9 @@
 
 ## Get Started
 
+<details>
+<summary> 1. Environment Setup</summary>
+  
 ### 1. Environment Setup
 
 Before running `setup.sh`, download the release assets below from
@@ -127,6 +130,11 @@ conda activate conceptseg-r1
 bash setup.sh
 ```
 
+</details>
+
+<details>
+<summary> 2. Training </summary>
+
 ### 2. Training
 
 **Prepare data** — Download the dataset, extract `all_meta.json` through `setup.sh`,
@@ -141,7 +149,14 @@ bash run_grpo_multiimage_stage1.sh
 bash run_grpo_multiimage_stage2.sh
 ```
 
-### 3. Evaluation
+
+</details>
+
+<details>
+<summary> 3. Evaluation </summary>
+
+
+### 3. Evaluation 
 
 **Concept Segmentation** — Download weights, set the model path in `eval_conceptseg.sh`, then run:
 
@@ -157,6 +172,10 @@ bash eval_conceptseg.sh
 bash eval_reasonseg.sh
 ```
 
+</details>
+
+<details>
+<summary> 4. Inference </summary>
 
 ### 4. Inference
 **Quick Start**: The `inference.sh` script includes 4 test cases covering different usage scenarios.
@@ -180,6 +199,8 @@ python src/eval/inference_single_example.py \
 - **Bounding Boxes**: Precise reference region specification for complex concepts (set `--bbox)
  
 
+</details>
+ 
 ## Data
 
 `all_meta.json` is no longer tracked in this repository. Download
