@@ -54,7 +54,7 @@ client = OpenAI(
     api_key=os.getenv("OPENAI_API_KEY", "sk-proj-1234567890"),
     base_url=os.getenv("OPENAI_API_BASE", "https://api.openai.com/v1")
 )
-from open_r1.mydataset import  ConceptSegDataset
+from open_r1.mydataset import  ConceptSegDataset,MixedDataset
 from open_r1.qwen2_5vl_monkey_patch import monkey_patch_qwen2_5vl_flash_attn, monkey_patch_qwen2_5vl_forward, monkey_patch_torch_load
 monkey_patch_qwen2_5vl_flash_attn()    
 monkey_patch_torch_load()
@@ -527,7 +527,9 @@ def main(script_args, training_args, model_args):
     else:
         reward_funcs = [reward_funcs_registry[func] for func in script_args.reward_funcs]
     print("reward_funcs:", reward_funcs)
-    Conceptseg_dataset = ConceptSegDataset( script_args,dataset_names= ["COD10K1024",  "DUTS",'CoSOD3k1024','fewshot1000','MGrounding'])
+    nomig_dataset = ConceptSegDataset( script_args,dataset_names= ["COD10K1024",  "DUTS",'CoSOD3k1024','fewshot1000'])
+    mig_dataset = ConceptSegDataset( script_args,dataset_names= ['MGrounding'])
+    all_dataset = MixedDataset([nomig_dataset,mig_dataset],sample_ratio=[1,2])
     checkpoints = list(pathlib.Path(training_args.output_dir).glob("checkpoint-*"))
     trainer_cls = VLMGRPOTrainer
     print("using trainer:", trainer_cls.__name__)
@@ -541,7 +543,7 @@ def main(script_args, training_args, model_args):
         reward_funcs=reward_funcs,
         args=training_args,
         vlm_module=vlm_module_cls(),
-        train_dataset=Conceptseg_dataset,
+        train_dataset=all_dataset,
         eval_dataset=None,
         peft_config=get_peft_config(model_args),
         freeze_vision_modules=model_args.freeze_vision_modules,

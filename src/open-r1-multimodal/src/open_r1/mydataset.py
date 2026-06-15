@@ -1,3 +1,4 @@
+from qwen_vl_utils import smart_resize
 from open_r1.mask2box_point import process_mask
 import torchvision.transforms.functional as TF
 from PIL import Image as PILImage
@@ -7,6 +8,39 @@ import math,json
 import torch
 from open_r1.constants import *
 import random
+class MixedDataset(torch.utils.data.Dataset):
+    def __init__(self, dataset_list, sample_ratio):
+        self.dataset_list = dataset_list
+        self.cumulative_lengths = [0]  # 记录每个dataset的起始索引
+
+        for dataset,ratio in zip(self.dataset_list,sample_ratio):
+            dataset.datas = random.choices(dataset.datas,k = len(dataset.datas)*ratio)
+
+        for dataset in self.dataset_list:
+            self.cumulative_lengths.append(self.cumulative_lengths[-1] + len(dataset))
+        for dataset in self.dataset_list:
+            print(dataset, len(dataset))
+        self.total_len = sum([len(d) for d in self.dataset_list])
+
+    def __len__(self):
+        return self.total_len
+
+    def __getitem__(self, idx):
+        # 检查idx是否在有效范围内
+        if idx < 0 or idx >= self.total_len:
+            raise IndexError(f"Index {idx} out of range [0, {self.total_len - 1}]")
+
+        # 查找idx属于哪个dataset
+        for i in range(len(self.dataset_list)):
+            start = self.cumulative_lengths[i]
+            end = self.cumulative_lengths[i + 1]
+            if start <= idx < end:
+                # 计算在该dataset中的局部索引
+                local_idx = idx - start
+                return self.dataset_list[i][local_idx]
+
+        # 不应该执行到这里，但作为保护
+        raise RuntimeError(f"Index {idx} could not be located in any dataset")
 def get_cd_data(data_files, image_folders,mode,dataset_name_list):
     if isinstance(dataset_name_list, str):
         dataset_name_list = [dataset_name_list]
@@ -187,7 +221,17 @@ class ConceptSegDataset(torch.utils.data.Dataset):
         question_template = self.question_template
         miss_ref_bbox = []
         if len(example["image_path"])==2:# and example["dataset_name"] in ["MIG","MGrounding"]:
-            mosaic_ref_images = TF.resize(PILImage.open(example["image_path"][0]).convert("RGB"), RESIZE_SIZE)
+            mosaic_ref_images = PILImage.open(example["image_path"][0]).convert("RGB")
+            width, height = mosaic_ref_images.size
+            resized_height, resized_width = smart_resize(
+                height,
+                width,
+                factor=28,
+                min_pixels=self.script_args.min_pixels,
+                max_pixels=self.script_args.max_pixels,
+            )
+            mosaic_ref_images = mosaic_ref_images.resize((resized_width, resized_height))
+
             check_answer = "<rule>Visual rule of the reference targets</rule>"
             problem = question_template.format(ref_bboxes="",question=question,check_prompt="",check_answer=check_answer)
         else:
